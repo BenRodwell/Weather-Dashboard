@@ -15,6 +15,7 @@ N/A
 - Use the appropriate package manager to install.
   git clone: https://github.com/BenRodwell/Weather-Dashboard.git
 
+  URL: (https://benrodwell.github.io/Weather-Dashboard/)
 ## Usage
 
 - Input field to select a city to search
