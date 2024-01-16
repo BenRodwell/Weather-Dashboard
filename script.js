@@ -96,7 +96,7 @@ async function displayWeather() {
         url: queryURL,
         method: "GET"
       })
-        console.log(response);
+        
 
         var currentWeatherDiv = $("<div class='card-body' id='currentWeather'>");
         var getCurrentCity = response.name;
