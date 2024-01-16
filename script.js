@@ -90,7 +90,7 @@ $("#cityInput").keypress(function(e){
 // This function runs the Open Weather API AJAX call and displays the current city, weather, and 5 day forecast to the DOM
 async function displayWeather() {
 
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityname + "&units=imperial&appid=d3b85d453bf90d469c82e650a0a3da26";
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityname + "&units=metric&appid=" + APIKey;
 
     var response = await $.ajax({
         url: queryURL,
@@ -108,13 +108,13 @@ async function displayWeather() {
         currentCityEl.append(displayCurrentWeatherIcon);
         currentWeatherDiv.append(currentCityEl);
         var getTemp = response.main.temp.toFixed(1);
-        var tempEl = $("<p class='card-text'>").text("Temperature: "+getTemp+"° F");
+        var tempEl = $("<p class='card-text'>").text("Temperature: "+getTemp+"° C");
         currentWeatherDiv.append(tempEl);
         var getHumidity = response.main.humidity;
         var humidityEl = $("<p class='card-text'>").text("Humidity: "+getHumidity+"%");
         currentWeatherDiv.append(humidityEl);
         var getWindSpeed = response.wind.speed.toFixed(1);
-        var windSpeedEl = $("<p class='card-text'>").text("Wind Speed: "+getWindSpeed+" mph");
+        var windSpeedEl = $("<p class='card-text'>").text("Wind Speed: "+getWindSpeed+" km/h");
         currentWeatherDiv.append(windSpeedEl);
         var getLong = response.coord.lon;
         var getLat = response.coord.lat;
@@ -149,7 +149,7 @@ async function displayWeather() {
 // This function runs the AJAX call for the 5 day forecast and displays them to the DOM
 async function displayFiveDayForecast() {
 
-    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q="+cityname+"&units=imperial&appid=d3b85d453bf90d469c82e650a0a3da26";
+    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q="+cityname+"&units=metric&appid=" + APIKey;
 
     var response = await $.ajax({
         url: queryURL,
@@ -175,7 +175,7 @@ async function displayFiveDayForecast() {
         var displayWeatherIcon = $("<img src = http://openweathermap.org/img/wn/" + getCurrentWeatherIcon + ".png />");
         cardBody.append(displayWeatherIcon);
         var getTemp = response.list[i].main.temp;
-        var tempEl = $("<p class='card-text'>").text("Temp: "+getTemp+"° F");
+        var tempEl = $("<p class='card-text'>").text("Temp: "+getTemp+"° C");
         cardBody.append(tempEl);
         var getHumidity = response.list[i].main.humidity;
         var humidityEl = $("<p class='card-text'>").text("Humidity: "+getHumidity+"%");
