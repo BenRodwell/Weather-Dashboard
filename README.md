@@ -1,5 +1,7 @@
 # Weather-Dashboard
 
+![Uploading Screenshot 2024-01-16 at 5.52.02 pm.png…]()
+
 ## Description
 
 Simple weather dashboard application that emcompasses HTML, CSS, Javascipt, JQuery, Bootstrap elements and the OpenWeather API.
